@@ -1,5 +1,5 @@
 package com.khuongtest.model;
-// Generated Jan 17, 2017 4:41:58 PM by Hibernate Tools 5.2.0.CR1
+// Generated Jan 17, 2017 4:41:58 PM by Hibernate Tools 5.2.0.CR
 
 import java.util.HashSet;
 import java.util.Set;
