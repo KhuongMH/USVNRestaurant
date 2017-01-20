@@ -24,7 +24,7 @@
 	<div class="login-card">
 		<h1>Log-in</h1>
 		<br>
-		<form:form class="form-signin" action="AdminPanel/login"
+		<form:form class="form-signin" action="/AdminPanel/login"
 			method="POST">
 			<input type="text" name="phone" placeholder="Phone Number">
 			<input type="password" name="password" placeholder="Password">

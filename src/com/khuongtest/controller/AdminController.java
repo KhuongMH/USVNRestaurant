@@ -26,7 +26,7 @@ public class AdminController {
 		if (request.getSession().getAttribute("login") != null) {
 			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
 //				model.addAttribute("listRestaurants", restaurantDAO.findAll());
-				return "pages/admin/main";
+				return "admin/main";
 			}
 		}
 		return "admin/login";
@@ -37,10 +37,10 @@ public class AdminController {
 			@RequestParam(value = "password") String password, HttpServletRequest request) {
 		if (accountService.checkAdminLogin(phone,password)) {
 			request.getSession().setAttribute("login", true);
-			return "pages/admin/main";
+			return "admin/main";
 		}
 		request.getSession().setAttribute("login", false);
-		return "pages/admin/login";
+		return "admin/login";
 	}
 
 //	@RequestMapping(value = "/AdminPanel/cFood", method = RequestMethod.GET)

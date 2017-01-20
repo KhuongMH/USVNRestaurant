@@ -42,7 +42,7 @@ public class AccountService implements AbstractService<Account> {
 	public boolean checkAdminLogin(String phone, String password) {
 		Account account = accountDAO.getAccountByUsernameAndPassword(phone, password);
 		if(account != null) {
-			if(account.getRole().getIdRole() == 1) {
+			if(account.getRole().getIdRole() == 2) {
 				return true;
 			}
 		}
