@@ -1,5 +1,5 @@
 package com.khuongtest.model;
-// Generated Jan 17, 2017 4:41:58 PM by Hibernate Tools 5.2.0.CR1
+// Generated Jan 19, 2017 3:15:39 PM by Hibernate Tools 5.2.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +26,7 @@ public class Fooddetails implements java.io.Serializable {
 	private Restaurant restaurant;
 	private String price;
 	private String ratingpoint;
+	private Integer status;
 	private Set<Rate> rates = new HashSet<Rate>(0);
 
 	public Fooddetails() {
@@ -38,12 +39,13 @@ public class Fooddetails implements java.io.Serializable {
 	}
 
 	public Fooddetails(FooddetailsId id, Food food, Restaurant restaurant, String price, String ratingpoint,
-			Set<Rate> rates) {
+			Integer status, Set<Rate> rates) {
 		this.id = id;
 		this.food = food;
 		this.restaurant = restaurant;
 		this.price = price;
 		this.ratingpoint = ratingpoint;
+		this.status = status;
 		this.rates = rates;
 	}
 
@@ -96,6 +98,15 @@ public class Fooddetails implements java.io.Serializable {
 
 	public void setRatingpoint(String ratingpoint) {
 		this.ratingpoint = ratingpoint;
+	}
+
+	@Column(name = "status")
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "fooddetails")

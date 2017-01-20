@@ -1,5 +1,5 @@
 package com.khuongtest.model;
-// Generated Jan 17, 2017 4:41:58 PM by Hibernate Tools 5.2.0.CR1
+// Generated Jan 19, 2017 3:15:39 PM by Hibernate Tools 5.2.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +23,7 @@ public class Rate implements java.io.Serializable {
 	private Account account;
 	private Fooddetails fooddetails;
 	private Integer point;
+	private Integer status;
 
 	public Rate() {
 	}
@@ -32,10 +33,11 @@ public class Rate implements java.io.Serializable {
 		this.fooddetails = fooddetails;
 	}
 
-	public Rate(Account account, Fooddetails fooddetails, Integer point) {
+	public Rate(Account account, Fooddetails fooddetails, Integer point, Integer status) {
 		this.account = account;
 		this.fooddetails = fooddetails;
 		this.point = point;
+		this.status = status;
 	}
 
 	@Id
@@ -79,6 +81,15 @@ public class Rate implements java.io.Serializable {
 
 	public void setPoint(Integer point) {
 		this.point = point;
+	}
+
+	@Column(name = "status")
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 }

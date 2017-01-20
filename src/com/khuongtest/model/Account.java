@@ -1,5 +1,5 @@
 package com.khuongtest.model;
-// Generated Jan 17, 2017 4:41:58 PM by Hibernate Tools 5.2.0.CR
+// Generated Jan 19, 2017 3:15:39 PM by Hibernate Tools 5.2.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +26,7 @@ public class Account implements java.io.Serializable {
 	private String phone;
 	private String password;
 	private Integer zipcode;
+	private Integer status;
 	private Set<Rate> rates = new HashSet<Rate>(0);
 
 	public Account() {
@@ -35,11 +36,12 @@ public class Account implements java.io.Serializable {
 		this.role = role;
 	}
 
-	public Account(Role role, String phone, String password, Integer zipcode, Set<Rate> rates) {
+	public Account(Role role, String phone, String password, Integer zipcode, Integer status, Set<Rate> rates) {
 		this.role = role;
 		this.phone = phone;
 		this.password = password;
 		this.zipcode = zipcode;
+		this.status = status;
 		this.rates = rates;
 	}
 
@@ -90,6 +92,15 @@ public class Account implements java.io.Serializable {
 
 	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
+	}
+
+	@Column(name = "status")
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")

@@ -14,11 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.khuongtest.model.Account;
 
 @Repository
+@Transactional
 public class AccountDAO implements AbstractDAO<Account> {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Account> findAll() {
 		return sessionFactory.getCurrentSession().createCriteria(Account.class).list();
@@ -55,5 +57,11 @@ public class AccountDAO implements AbstractDAO<Account> {
 		} catch (Exception e) {
 			throw e;
 		}
+	}
+
+	public Account getAccountByUsernameAndPassword(String phone, String password) {
+		Account account = (Account) sessionFactory.getCurrentSession().createQuery("from Account where phone = :phone and password = :password")
+				.setParameter("phone", phone).setParameter("password", password).uniqueResult();
+		return account;
 	}
 }

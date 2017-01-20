@@ -9,7 +9,7 @@ import com.khuongtest.dao.AccountDAO;
 import com.khuongtest.model.Account;
 
 @Service
-public class AccountService implements AbstractService<Account>{
+public class AccountService implements AbstractService<Account> {
 
 	@Autowired
 	AccountDAO accountDAO;
@@ -37,6 +37,16 @@ public class AccountService implements AbstractService<Account>{
 	@Override
 	public void delete(Account item) {
 		accountDAO.delete(item);
+	}
+
+	public boolean checkAdminLogin(String phone, String password) {
+		Account account = accountDAO.getAccountByUsernameAndPassword(phone, password);
+		if(account != null) {
+			if(account.getRole().getIdRole() == 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

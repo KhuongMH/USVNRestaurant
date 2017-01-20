@@ -23,26 +23,26 @@ public class AdminController {
 	
 	@RequestMapping(value = "/AdminPanel", method = { RequestMethod.GET, RequestMethod.HEAD })
 	public String index(Model model, HttpServletRequest request) {
-//		if (request.getSession().getAttribute("login") != null) {
-//			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
+		if (request.getSession().getAttribute("login") != null) {
+			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
 //				model.addAttribute("listRestaurants", restaurantDAO.findAll());
-//				return "pages/admin/main";
-//			}
-//		}
+				return "pages/admin/main";
+			}
+		}
 		return "admin/login";
 	}
-//
-//	@RequestMapping(value = "/AdminPanel/login", method = RequestMethod.POST)
-//	public String login(@RequestParam(value = "username") String username,
-//			@RequestParam(value = "password") String password, HttpServletRequest request) {
-//		if (accountDAO.checkAdminLogin(username,password)) {
-//			request.getSession().setAttribute("login", true);
-//			return "pages/admin/main";
-//		}
-//		request.getSession().setAttribute("login", false);
-//		return "pages/admin/login";
-//	}
-//
+
+	@RequestMapping(value = "/AdminPanel/login", method = RequestMethod.POST)
+	public String login(@RequestParam(value = "phone") String phone,
+			@RequestParam(value = "password") String password, HttpServletRequest request) {
+		if (accountService.checkAdminLogin(phone,password)) {
+			request.getSession().setAttribute("login", true);
+			return "pages/admin/main";
+		}
+		request.getSession().setAttribute("login", false);
+		return "pages/admin/login";
+	}
+
 //	@RequestMapping(value = "/AdminPanel/cFood", method = RequestMethod.GET)
 //	public String createFood(Model model, HttpServletRequest request) {
 //		if (request.getSession().getAttribute("login") != null) {

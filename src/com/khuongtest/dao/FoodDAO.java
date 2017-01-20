@@ -6,11 +6,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.khuongtest.model.Account;
 import com.khuongtest.model.Food;
 
 @Repository
+@Transactional
 public class FoodDAO implements AbstractDAO<Food> {
 	
 	@Autowired
