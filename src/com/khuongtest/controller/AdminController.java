@@ -42,6 +42,39 @@ public class AdminController {
 		request.getSession().setAttribute("login", false);
 		return "admin/login";
 	}
+	
+	@RequestMapping(value = "/AdminPanel/Restaurant", method = { RequestMethod.GET, RequestMethod.HEAD })
+	public String restaurant(Model model, HttpServletRequest request) {
+		if (request.getSession().getAttribute("login") != null) {
+			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
+//				model.addAttribute("listRestaurants", restaurantDAO.findAll());
+				return "admin/l_restaurant";
+			}
+		}
+		return "admin/login";
+	}
+	
+	@RequestMapping(value = "/AdminPanel/Food", method = { RequestMethod.GET, RequestMethod.HEAD })
+	public String food(Model model, HttpServletRequest request) {
+		if (request.getSession().getAttribute("login") != null) {
+			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
+//				model.addAttribute("listRestaurants", restaurantDAO.findAll());
+				return "admin/l_food";
+			}
+		}
+		return "admin/login";
+	}
+	
+	@RequestMapping(value = "/AdminPanel/Account", method = { RequestMethod.GET, RequestMethod.HEAD })
+	public String account(Model model, HttpServletRequest request) {
+		if (request.getSession().getAttribute("login") != null) {
+			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
+//				model.addAttribute("listRestaurants", restaurantDAO.findAll());
+				return "admin/l_account";
+			}
+		}
+		return "admin/login";
+	}
 
 //	@RequestMapping(value = "/AdminPanel/cFood", method = RequestMethod.GET)
 //	public String createFood(Model model, HttpServletRequest request) {
