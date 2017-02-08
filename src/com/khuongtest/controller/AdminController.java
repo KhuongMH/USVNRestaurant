@@ -65,6 +65,17 @@ public class AdminController {
 		return "admin/login";
 	}
 	
+	@RequestMapping(value = "/AdminPanel/Food/Create", method = { RequestMethod.GET, RequestMethod.HEAD })
+	public String createFood(Model model, HttpServletRequest request) {
+		if (request.getSession().getAttribute("login") != null) {
+			if (request.getSession().getAttribute("login").equals(Boolean.TRUE)) {
+//				model.addAttribute("listRestaurants", restaurantDAO.findAll());
+				return "admin/createFood";
+			}
+		}
+		return "admin/login";
+	}
+	
 	@RequestMapping(value = "/AdminPanel/Account", method = { RequestMethod.GET, RequestMethod.HEAD })
 	public String account(Model model, HttpServletRequest request) {
 		if (request.getSession().getAttribute("login") != null) {

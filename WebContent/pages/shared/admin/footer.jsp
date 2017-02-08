@@ -60,12 +60,13 @@
 <script src="<c:url value="/resources/admin/js/charts.js" />"></script>
 <script
 	src="<c:url value="/resources/admin/js/jquery.slimscroll.min.js" />"></script>
-<script type="text/javascript" charset="utf8"
-	src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+<!-- <script type="text/javascript" charset="utf8"
+	src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script> -->
+<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
 <script>
-	$(document).ready(function() {
+	/* $(document).ready(function() {
 		$('#tableRestaurant').DataTable();
-	});
+	}); */
 	//knob
 	$(function() {
 		$(".knob").knob({
@@ -109,6 +110,7 @@
 			}
 		});
 	});
+
 </script>
 
 </body>
